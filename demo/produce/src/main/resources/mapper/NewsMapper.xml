@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.produce_module.dao.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.produce_module.entities.News" >
+        <id column="news_id" property="newsId" jdbcType="VARCHAR" />
+        <result column="news_name" property="newsName" jdbcType="VARCHAR" />
+        <result column="news_content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    news_id, news_name, news_content
+  </sql>
+  
+  <select id="getAll"  resultMap="BaseResultMap">
+      SELECT  <include refid="Base_Column_List" /> FROM news
+
+  </select>
+  
+
+</mapper>
